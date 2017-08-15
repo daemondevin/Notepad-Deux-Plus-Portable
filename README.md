@@ -68,8 +68,8 @@ All downloads available in the [Releases section][D1]. This portable application
 ## License
 
 * Portable application code released under [the MIT license][L1].
-* The Notepad++ [EULA][L2].
+* Notepad++ is governed under the [GPL][L2] License.
 
  [L1]: https://raw.githubusercontent.com/demondevin/Notepad-Portable/master/LICENSE
- [L2]: https://raw.githubusercontent.com/demondevin/Notepad-Portable/master/App/AppInfo/eula.txt
+ [L2]: http://www.gnu.org/copyleft/gpl.html
  
