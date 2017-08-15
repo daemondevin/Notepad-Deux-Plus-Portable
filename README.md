@@ -43,6 +43,17 @@ All downloads available in the [Releases section][D1]. This portable application
 > - Windows 8 can be problematic and may require unlocking for some filetypes&mdash;_i.e._ when double-clicking on a supported file format and Windows asks you to select Notepad++ from a list. This is because Windows 8 has an implementation of a hash ID for associations. 
 > - Do not associate through Notepad++! This will leave trash in the registry when you exit the program. 
 * SendTo is also available for any filetypes that aren't associated but are supported for use with Notepad++.
+* Optional Fonts folder to support fonts within the directory `..\Data\Fonts`. Any fonts added in this folder will be added to the system and are available for usage during runtime. Be aware, the more fonts to process the longer it will take for the launcher to load and unload these fonts.
+> Supported Fonts: 
+> - .fon
+> - .fnt
+> - .ttf
+> - .ttc
+> - .fot
+> - .otf
+> - .mmm
+> - .pfb
+> - .pfm
 * More features soon to come!
 
 ## System Requirements
