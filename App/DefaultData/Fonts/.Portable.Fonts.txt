@@ -1,0 +1,17 @@
+Font(s) added here will be loaded on launch and accessible during runtime.
+
+NOTE:
+	The launcher will have to load and unload any fonts in this directory.
+	The more fonts you have will mean a longer work load for the launcher.
+	
+Fonts Supported:
+ • .fon
+ • .fnt
+ • .ttf
+ • .ttc
+ • .fot
+ • .otf
+ • .mmm
+ • .pfb
+ • .pfm
+ 
