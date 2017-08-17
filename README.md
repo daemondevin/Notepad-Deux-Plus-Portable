@@ -1,3 +1,4 @@
+_I'm aware of the typo in the URL to this project. I've linked using the typo already many places elsewhere to try and fix it now._
 # Notepad++ Portable
 
 Notepad++Portable is a portable version of the popular [Notepad++][C1] application. Notepad++ is a free (as in "free speech" and also as in "free beer") source code editor and Notepad replacement that supports several languages.
