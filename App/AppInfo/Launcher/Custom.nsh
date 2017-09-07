@@ -4,9 +4,8 @@
 ; This PAF was compiled using a modified version of PAL:
 ; https://github.com/demondevin/portableapps.comlauncher
 
-;= INCLUDES 
+;= VARIABLES
 ;= ################
-!include WinMessages.nsh
 
 ;= DEFINES
 ;= ################
@@ -28,16 +27,6 @@
 
 ;= MACROS 
 ;= ################
-; !define File::BackupLocal "!insertmacro File::BackupLocal"
-; !macro File::BackupLocal _LOCALFILE
-	; Delete `${_LOCALFILE}.BackupBy${APPNAME}`
-	; Rename `${_LOCALFILE}` `${_LOCALFILE}.BackupBy${APPNAME}`
-; !macroend
-; !define File::RestoreLocal "!insertmacro File::RestoreLocal"
-; !macro File::RestoreLocal _LOCALFILE
-	; Delete `${_LOCALFILE}`
-	; Rename `${_LOCALFILE}.BackupBy${APPNAME}` `${_LOCALFILE}`
-; !macroend
 !define MsgBox "!insertmacro _MsgBox"
 !macro _MsgBox
 	StrCpy $MissingFileOrPath `Windows XP or newer`
@@ -48,57 +37,6 @@
 
 ;= FUNCTIONS 
 ;= ################
-Function ReadS
-	!macro _ReadS _FILE _ENTRY _RESULT
-		Push `${_FILE}`
-		Push `${_ENTRY}`
-		Call ReadS
-		Pop ${_RESULT}
-	!macroend
-	!define ReadS `!insertmacro _ReadS`
-	!insertmacro TextFunc_BOM
-	Exch $1
-	Exch
-	Exch $0
-	Exch
-	Push $2
-	Push $3
-	Push $4
-	Push $5
-	ClearErrors
-	FileOpen $2 $0 r
-	IfErrors +22
-	FileReadWord $2 $5
-	IntCmp $5 0xFEFF +4
-	FileSeek $2 0 SET
-	StrCpy $TextFunc_BOM 0
-	Goto +2
-	StrCpy $TextFunc_BOM FFFE
-	StrLen $0 $1
-	StrCmpS $0 0 +14
-	IntCmp $5 0xFEFF +3
-	FileRead $2 $3
-	Goto +2
-	FileReadUTF16LE $2 $3
-	IfErrors +9
-	StrCpy $4 $3 $0
-	StrCmpS $4 $1 0 -6
-	StrCpy $0 $3 '' $0
-	StrCpy $4 $0 1 -1
-	StrCmpS $4 '$\r' +2
-	StrCmpS $4 '$\n' 0 +5
-	StrCpy $0 $0 -1
-	goto -4
-	SetErrors
-	StrCpy $0 ''
-	FileClose $2
-	Pop $5
-	Pop $4
-	Pop $3
-	Pop $2
-	Pop $1
-	Exch $0
-FunctionEnd
 Function Init::Mirror
 	!macro _Init::Mirror _PATH _FILTER
 		Push `${_FILTER}`
